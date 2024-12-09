@@ -1,3 +1,5 @@
+###using slicing
+
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         index_start = []
@@ -12,4 +14,33 @@ class Solution:
                 break
         return output
 
-#using slicing
+
+
+###using for loop(two return)
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        output = -1
+        for i in range(len(haystack)-len(needle)+1):
+            for j in range(len(needle)):
+                flag = True
+                if haystack[i+j] != needle[j]:
+                    flag = False
+                    break
+            if flag:
+                output = i
+                break
+        return output
+
+        output = -1
+        for i in range(len(haystack)-len(needle)+1):
+            for j in range(len(needle)):
+                flag = True
+                if haystack[i+j] != needle[j]:
+                    flag = False
+                    break
+            if flag:
+                output = i
+                return output i
+        return -1
+
