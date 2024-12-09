@@ -1,0 +1,72 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        strs_len = []
+        output = ""
+        # for i in range(len(strs)):
+        #     strs_len_var = len(strs[i])
+        #     strs_len.append(strs_len_var)
+        # mini = min(strs_len)
+
+        # strs_len = [0 for i in range(len(strs))]
+        # for i in range(len(strs)):
+        #     strs_len[i] = len(strs[i])
+        # mini = min(strs_len)
+
+
+        # mini = inf
+        # for i in range(len(strs)):
+        #     if mini > len(strs[i]):
+        #         mini = len(strs[i])
+        
+        # mini = len(strs[0])
+        # for i in range(1, len(strs)):
+        #     if mini > len(strs[i]):
+        #         mini = len(strs[i])
+        # print(mini)
+      
+        # for j in range(0, mini):
+        #     a = 1
+        #     for i in range(0, len(strs)-1):
+        #         if strs[i][j] == strs[i+1][j]:
+        #             a += 1
+        #         else:
+        #             return output
+        #     # print(a, i)
+
+        #     if a == len(strs):
+        #        output = output + strs[0][j]
+        #        j += 1
+        #     else:
+        #         return output
+
+        len1 = len(strs[0])
+        for j in range(0, len1):
+            a = 1
+            for i in range(1, len(strs)):
+                if len(strs[i]) < j+1:
+                    return output
+                if strs[i][j] == strs[0][j]:
+                    a += 1
+                else:
+                    return output
+            # print(a, i)
+
+            if a == len(strs):
+               output = output + strs[0][j]
+            else:
+                return output
+            
+        return output
+
+
+##########################
+import numpy as np
+def get_min(a):
+    mini = a[0]
+    for i in range(1, len(a)):
+        if a[i] < mini:
+           mini = a[i]
+    return mini
+
+a = np.random.randn(10)
+print(get_min(a) == min(a))
