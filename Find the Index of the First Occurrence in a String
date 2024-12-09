@@ -1,0 +1,15 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        index_start = []
+        for i in range(len(haystack)):
+            if haystack[i] == needle[0]:
+                index_start.append(i)
+        output = -1
+        n = len(needle)
+        for i in index_start:
+            if haystack[i:n+i] == needle:
+                output = i
+                break
+        return output
+
+#using slicing
